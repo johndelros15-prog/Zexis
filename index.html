@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEXIS - Premium Lifestyle Store</title>
+    <link rel="stylesheet" href="styls.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>ZEXIS</h1>
+                    <span class="logo-subtitle">LUXURY</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#headphones" class="nav-link">Headphones</a>
+                    <a href="#watches" class="nav-link">Watches</a>
+                    <a href="#perfumes" class="nav-link">Perfumes</a>
+                </div>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Experience Luxury</h2>
+            <p class="hero-subtitle">Curated collection of premium lifestyle products</p>
+            <button class="cta-button" onclick="scrollToSection('headphones')">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Headphones Category -->
+    <section id="headphones" class="category-section">
+        <div class="container">
+            <h2 class="category-title">Premium Headphones</h2>
+            <div class="products-grid" id="headphonesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Watches Category -->
+    <section id="watches" class="category-section">
+        <div class="container">
+            <h2 class="category-title">Luxury Watches</h2>
+            <div class="products-grid" id="watchesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Perfumes Category -->
+    <section id="perfumes" class="category-section">
+        <div class="container">
+            <h2 class="category-title">Men's Perfumes</h2>
+            <div class="products-grid" id="perfumesGrid"></div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cartItems"></div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <strong>Total: ₱<span id="cartTotal">0</span></strong>
+            </div>
+            <button class="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Orders Modal -->
+    <div class="modal" id="ordersModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>My Orders</h3>
+                <button class="close-modal" onclick="closeOrdersModal()">&times;</button>
+            </div>
+            <div class="orders-list" id="ordersList"></div>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content payment-modal">
+            <div class="modal-header">
+                <h3>Payment Information</h3>
+                <button class="close-modal" onclick="closePaymentModal()">&times;</button>
+            </div>
+            <div class="payment-methods">
+                <div class="payment-method" onclick="selectPayment('gcash')">
+                    <img src="https://via.placeholder.com/60x40/007bff/ffffff?text=GCash" alt="GCash">
+                    <span>GCash</span>
+                </div>
+                <div class="payment-method" onclick="selectPayment('card')">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Credit Card</span>
+                </div>
+                <div class="payment-method" onclick="selectPayment('cod')">
+                    <i class="fas fa-money-bill"></i>
+                    <span>Cash on Delivery</span>
+                </div>
+            </div>
+            <div id="paymentForm" class="payment-form" style="display: none;">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="customerName" placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label>Mobile Number</label>
+                    <input type="tel" id="customerPhone" placeholder="09XX XXX XXXX">
+                </div>
+                <div class="form-group" id="cardFields" style="display: none;">
+                    <label>Card Number</label>
+                    <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                    <label>Expiry Date</label>
+                    <input type="text" id="expiryDate" placeholder="MM/YY">
+                    <label>CVV</label>
+                    <input type="text" id="cvv" placeholder="123">
+                </div>
+                <button class="pay-btn" onclick="processPayment()">Pay Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content success-modal">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Thank You for Your Order!</h3>
+            <p>This is only a demo store. No real transaction has been made.</p>
+            <button class="continue-btn" onclick="closeSuccessModal()">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Orders Button -->
+    <div class="orders-button" onclick="openOrdersModal()">
+        <i class="fas fa-list"></i>
+        <span>My Orders</span>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="closeAllModals()"></div>
+
+    <script src="zexis.js"></script>
+</body>
+</html>
