@@ -673,34 +673,114 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-/* Working Background Glow */
+/* LUXURY COLOR UPGRADE */
+
+/* Animated luxury background */
 body {
-    background: linear-gradient(-45deg, #1a1a1a, #2d2d2d, #1a1a1a, #3a3a3a);
+    background: linear-gradient(135deg, 
+        #1a1a1a 0%, 
+        #2a2a2a 25%, 
+        #1f1f1f 50%, 
+        #2d2d2d 75%, 
+        #1a1a1a 100%);
     background-size: 400% 400%;
-    animation: gradientGlow 8s ease infinite;
+    animation: luxuryShift 10s ease infinite;
 }
 
-@keyframes gradientGlow {
+@keyframes luxuryShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* Additional floating light effect */
-body::before {
+/* Floating rose gold particles */
+body::after {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-    animation: floatLight 6s ease-in-out infinite;
+    background-image: 
+        radial-gradient(circle at 15% 25%, rgba(183, 110, 121, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 85% 75%, rgba(205, 127, 50, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+    animation: particleFloat 15s ease-in-out infinite;
     pointer-events: none;
 }
 
-@keyframes floatLight {
-    0%, 100% { opacity: 0.3; transform: translateX(0); }
-    50% { opacity: 0.6; transform: translateX(30px); }
+@keyframes particleFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-20px, -20px) scale(1.05); }
+    66% { transform: translate(20px, -10px) scale(0.95); }
+}
+
+/* Luxury header - rose gold gradient */
+.header {
+    background: linear-gradient(90deg, 
+        rgba(26, 26, 26, 0.98) 0%, 
+        rgba(45, 45, 45, 0.98) 50%, 
+        rgba(26, 26, 26, 0.98) 100%) !important;
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+}
+
+/* Gold accent lines */
+.category-title::after {
+    background: linear-gradient(90deg, 
+        transparent, 
+        #d4af37, 
+        #b76e79, 
+        #d4af37, 
+        transparent) !important;
+    height: 3px !important;
+}
+
+/* Rose gold buttons */
+.cta-button, .add-to-cart-btn, .checkout-btn, .pay-btn {
+    background: linear-gradient(45deg, #d4af37, #cd7f32) !important;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover, .add-to-cart-btn:hover, .checkout-btn:hover, .pay-btn:hover {
+    background: linear-gradient(45deg, #cd7f32, #d4af37) !important;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Pearl white text with gold hover */
+.nav-link, .logo h1 {
+    color: #f8f8f8 !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.nav-link:hover {
+    color: #d4af37 !important;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Product cards with bronze borders */
+.product-card {
+    border: 1px solid #cd7f32;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3), 
+                inset 0 0 0 1px rgba(205, 127, 50, 0.1);
+}
+
+.product-card:hover {
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), 
+                0 0 20px rgba(212, 175, 55, 0.2);
+    border-color: #d4af37;
+}
+
+/* Rose gold crown */
+.crown-emoji {
+    color: #b76e79 !important;
+    text-shadow: 0 0 15px rgba(183, 110, 121, 0.5);
+    animation: roseGoldPulse 3s ease-in-out infinite;
+}
+
+@keyframes roseGoldPulse {
+    0%, 100% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.1); opacity: 1; }
 }
