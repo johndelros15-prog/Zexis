@@ -673,12 +673,20 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-/* Moving background lights */
+/* Working Background Glow */
 body {
-    position: relative;
-    overflow-x: hidden;
+    background: linear-gradient(-45deg, #1a1a1a, #2d2d2d, #1a1a1a, #3a3a3a);
+    background-size: 400% 400%;
+    animation: gradientGlow 8s ease infinite;
 }
 
+@keyframes gradientGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Additional floating light effect */
 body::before {
     content: '';
     position: fixed;
@@ -686,40 +694,13 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, 
-        rgba(212, 175, 55, 0.1), 
-        rgba(255, 255, 255, 0.1), 
-        rgba(26, 26, 26, 0.1),
-        rgba(212, 175, 55, 0.1));
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
-    z-index: -1;
+    background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: floatLight 6s ease-in-out infinite;
+    pointer-events: none;
 }
 
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Optional: Add floating light particles */
-body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(26, 26, 26, 0.1) 0%, transparent 50%);
-    animation: floatLights 12s ease-in-out infinite;
-    z-index: -1;
-}
-
-@keyframes floatLights {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -30px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
+@keyframes floatLight {
+    0%, 100% { opacity: 0.3; transform: translateX(0); }
+    50% { opacity: 0.6; transform: translateX(30px); }
 }
