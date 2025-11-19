@@ -673,3 +673,22 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+/* Crown Icon Styling */
+.crown-icon {
+    color: var(--secondary-color);
+    font-size: 1.8rem;
+    margin-left: 10px;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    animation: crownGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes crownGlow {
+    from { text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+    to { text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.6); }
+}
+
+.logo h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
