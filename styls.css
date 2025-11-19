@@ -674,17 +674,51 @@ body {
     transform: translateY(0);
   }
 /* Crown Icon Styling */
-.crown-icon {
-    color: var(--secondary-color);
-    font-size: 1.8rem;
+.crown {
+    display: inline-block;
+    width: 25px;
+    height: 20px;
     margin-left: 10px;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    position: relative;
+    top: -5px;
+}
+
+.crown::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid var(--secondary-color);
+    top: 0;
+    left: 0;
+}
+
+.crown::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid var(--secondary-color);
+    top: 0;
+    right: 0;
+}
+
+.crown {
     animation: crownGlow 2s ease-in-out infinite alternate;
 }
 
 @keyframes crownGlow {
-    from { text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
-    to { text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.6); }
+    0% { 
+        filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5)); 
+    }
+    100% { 
+        filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.9)) 
+                drop-shadow(0 0 25px rgba(212, 175, 55, 0.7)); 
+    }
 }
 
 .logo h1 {
