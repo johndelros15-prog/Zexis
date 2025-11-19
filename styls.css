@@ -658,29 +658,34 @@ body {
     animation: spin 1s ease-in-out infinite;
 }
 
-/* ===== LUXURY FINISH ===== */
+ .footer { background: var(--primary-color); color: var(--white); padding: 60px 20px; margin-top: 100px; text-align: center; border-top: 3px solid var(--secondary-color); }
 
-/* 1. silky champagne background */
-body{background:radial-gradient(ellipse at top,#1f1f1f 0%,#121212 100%) fixed;}
+.footer h2 { font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 15px; letter-spacing: 2px; }
 
-/* 2. slow gold shimmer wave */
-body ::after{content:'';position:fixed;top:0;left:0;width:200%;height:100%;background:linear-gradient(90deg,transparent 0%,rgba(212,175,55,.06) 50%,transparent 100%);animation:shimmer 8s linear infinite;pointer-events:none;z-index:9999;}
-@keyframes shimmer{from{transform:translateX(-50%)}to{transform:translateX(0%)}}
+.footer p { color: var(--text-light); font-size: 0.9rem; margin-bottom: 25px; }
 
-/* 3. header gold line + bloom */
-.header{border-bottom:1px solid #d4af37;box-shadow:0 0 25px rgba(212,175,55,.25);}
+.footer-socials { display: flex; justify-content: center; gap: 25px; margin-top: 20px; }
 
-/* 4. cards — champagne lift */
-.product-card{box-shadow:0 10px 30px rgba(0,0,0,.15),inset 0 0 0 1px rgba(212,175,55,.2);transition:transform .3s ease,box-shadow .3s ease;}
-.product-card:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.25),inset 0 0 0 1px rgba(212,175,55,.35);}
+.footer-socials a { color: var(--white); font-size: 1.6rem; transition: all .3s ease; }
 
-/* 5. buttons — gold gradient + press */
-.add-to-cart-btn,.checkout-btn{background:linear-gradient(135deg,#d4af37 0%,#b8941f 100%);transition:all .2s ease;}
-.add-to-cart-btn:active,.checkout-btn:active{transform:translateY(2px);box-shadow:0 3px 8px rgba(0,0,0,.2);}
+.footer-socials a:hover { color: var(--secondary-color); transform: translateY(-5px); }
 
-/* 6. cart icon — crown pulse */
-.cart-icon i{transition:transform .2s ease,color .2s ease;}
-.cart-icon:hover i{transform:scale(1.1) rotate(5deg);color:#d4af37;}
+/* Floating Decorative Gradient Balls */ .decor-ball { position: fixed; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle at top left, var(--secondary-color), var(--primary-color)); opacity: 0.15; filter: blur(50px); z-index: -1; animation: floatBall 8s infinite ease-in-out alternate; }
 
-/* 7. smooth scroll */
-html{scroll-behavior:smooth;}
+.decor-ball.ball1 { top: 10%; left: -50px; }
+
+.decor-ball.ball2 { bottom: 15%; right: -60px; animation-delay: 2s; }
+
+@keyframes floatBall { 0% { transform: translateY(0); } 100% { transform: translateY(40px); } }
+
+/* Smooth Scrollbar Styling */ ::-webkit-scrollbar { width: 10px; }
+
+::-webkit-scrollbar-track { background: #f0f0f0; }
+
+::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 10px; }
+
+::-webkit-scrollbar-thumb:hover { background: #b89426; }
+
+/* Section Divider Lines */ .section-divider { width: 80%; height: 2px; background: linear-gradient(to right, transparent, var(--secondary-color), transparent); margin: 80px auto; }
+
+/* Glow-on-Hover Buttons */ .btn-glow:hover { box-shadow: 0 0 20px var(--secondary-color); }
